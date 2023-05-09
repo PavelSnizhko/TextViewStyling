@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct MarkDown: View {
-    let sample = "With markdown you can set text to bold, italics, strikethrough or monospaced text simply by marking it up.  You can even add links to your text like this for a web site www.createchsol.com."
+    let sample: LocalizedStringKey = "With markdown you can set text to **bold**, __italics__, ~strikethrough~ or `monospaced` text simply by marking it up.  You can even add links to your text like this for a web site [Youtube Extensions](https://www.youtube.com/watch?v=Fonjd_kjDbo&t=789s)"
 
     var body: some View {
         NavigationStack {
@@ -36,16 +36,16 @@ struct MarkDown: View {
                 }
                 Section("Links") {
                     LabeledContent("Web Link") {
-                        Text("Visit Apple: https://apple.com")
+                        Text("Visit [Apple:](https://apple.com)")
                     }
                     LabeledContent("Mail To") {
-                        Text("Email Stewart Lynch slynch@createchsol.com")
+                        Text("Email [Pavlo Snizhko](mailto:pavel.snizhko.2000@gmail.com)")
                     }
                 }
                 Section("String Interpolation") {
                     Text(sample)
                     LabeledContent("Vebatim") {
-                        Text("This is bold, italics, strikethrough and monospaced.")
+                        Text(verbatim: "This is **bold**, _italics_, ~strikethrough~ and monospaced.")
                     }
                 }
             }

@@ -24,13 +24,26 @@ struct AttributedStrings: View {
                         Text("Do you use swiftUI or uiKit? in your code")
                     }
                     Section("Advanced") {
-                        Text("Checkmate")
+                        Text(checkBoard("Checkmate"))
+                            .border(.green)
                     }
                 }
                 
             }
             .navigationTitle("AttributedString")
         }
+    }
+    
+    func checkBoard(_ string: String) -> AttributedString {
+        var result = AttributedString()
+        for (index, letter) in string.enumerated() {
+            var letterString = AttributedString(String(letter))
+            letterString.backgroundColor = index % 2 == 0 ? .white : .black
+            letterString.foregroundColor = index % 2 == 0 ? .black : .white
+            result += letterString
+        }
+        result.font = .monospacedSystemFont(ofSize: 40, weight: .bold)
+        return result
     }
 }
 
